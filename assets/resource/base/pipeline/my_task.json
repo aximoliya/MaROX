@@ -1,5 +1,228 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "开始每日日常委托": {
+        "next": [
+            "点击乐园日常",
+            "展开日常"
+        ]
+    },
+    "点击乐园日常": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            856,
+            6,
+            78,
+            78
+        ],
+        "template": "leyuanrichang.png",
+        "action": "Click",
+        "next": [
+            "点击委托板"
+        ]
+    },
+    "展开日常": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1008,
+            7,
+            76,
+            67
+        ],
+        "template": "zkl.png",
+        "action": "Click",
+        "next": [
+            "点击乐园日常"
+        ]
+    },
+    "点击委托板": {
+        "recognition": "OCR",
+        "roi": [
+            570,
+            362,
+            154,
+            136
+        ],
+        "expected": [
+            "委托板"
+        ],
+        "action": "Click",
+        "next": [
+            "点击前往"
+        ]
+    },
+    "点击前往": {
+        "recognition": "OCR",
+        "expected": [
+            "前往"
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "全部接受",
+            "点击跳过",
+            "点委托"
+        ]
+    },
+    "全部接受": {
+        "recognition": "OCR",
+        "roi": [
+            390,
+            560,
+            466,
+            154
+        ],
+        "expected": [
+            "全部接受"
+        ],
+        "action": "Click",
+        "next": [
+            "点击进行中"
+        ]
+    },
+    "关闭": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1161,
+            9,
+            113,
+            99
+        ],
+        "template": "gb.png",
+        "action": "Click",
+        "next": [
+            "点击进行中"
+        ]
+    },
+    "点击进行中": {
+        "recognition": "OCR",
+        "expected": [
+            "进行中"
+        ],
+        "action": "Click",
+        "next": [
+            "点击前往"
+        ]
+    },
+    "点击跳过": {
+        "recognition": "OCR",
+        "roi": [
+            1077,
+            3,
+            200,
+            95
+        ],
+        "expected": [
+            "点击跳过"
+        ],
+        "action": "Click",
+        "next": [
+            "点委托"
+        ]
+    },
+    "点委托": {
+        "recognition": "OCR",
+        "roi": [
+            52,
+            180,
+            232,
+            291
+        ],
+        "expected": [
+            "[委托]"
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "寻路中",
+            "点击跳过",
+            "点击互动",
+            "自动战斗中",
+            "上交",
+            "提交",
+            "点委托"
+        ]
+    },
+    "点击互动": {
+        "recognition": "TemplateMatch",
+        "template": "hd.png",
+        "action": "Click",
+        "threshold": 0.9,
+        "next": [
+            "点委托"
+        ]
+    },
+    "寻路中": {
+        "recognition": "OCR",
+        "roi": [
+            563,
+            198,
+            151,
+            78
+        ],
+        "expected": [
+            "寻路中"
+        ],
+        "post_delay": 1000,
+        "next": [
+            "寻路中",
+            "点委托",
+            "点击跳过",
+            "点击互动",
+            "自动战斗中",
+            "上交",
+            "提交"
+        ]
+    },
+    "提交": {
+        "recognition": "OCR",
+        "expected": [
+            "可提交"
+        ],
+        "action": "Click",
+        "next": [
+            "完成"
+        ]
+    },
+    "完成": {
+        "recognition": "OCR",
+        "roi": [
+            917,
+            568,
+            106,
+            43
+        ],
+        "expected": [
+            "完成"
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "next": [
+            "关闭"
+        ]
+    },
+    "自动战斗中": {
+        "recognition": "TemplateMatch",
+        "template": "zdd.png",
+        "post_delay": 1000,
+        "next": [
+            "点委托"
+        ]
+    },
+    "上交": {
+        "recognition": "OCR",
+        "expected": [
+            "上交"
+        ],
+        "action": "Click",
+        "next": [
+            "再一次上交"
+        ]
+    },
+    "再一次上交": {
+        "recognition": "TemplateMatch",
+        "template": "sj.png",
+        "action": "Click",
+        "next": [
+            "点委托"
+        ]
+    }
 }
